@@ -42,10 +42,33 @@ void defineHotkeys() {
 
   //**These are the default hotkeys, and may be a bit complicated for noobs.  Read reference beow. **//
   
-  String key1[] = {osCondition("[#]r", "[!] ", F("[!]\xC3"), ""), osCondition("", "", F("[100]xdg-open "), ""), F("https://kernelcon.org"), F("[250]\n")}; //first array value sends keystrong to open run dialog on each OS, second adds additional text on Linux, third send the URL, fourth delays and hits return
-  String key2[] = {osCondition("[#]r", "[!] ", F("[!]\xC3"), ""), osCondition("", "", F("[100]xdg-open "), ""), F("https://twitch.kernelcon.org"), F("[250]\n")};
-  String key3[] = {osCondition("[#]r", "[!] ", F("[!]\xC3"), ""), osCondition("", "", F("[100]xdg-open "), ""), F("https://discord.kernelcon.org"), F("[250]\n")};
-  String key4[] = {osCondition("[#]r", "[!] ", F("[!]\xC3"), ""), osCondition("", "", F("[100]xdg-open "), ""), F("http://github.com/kernelcon/hacker-hotkey"), F("[250]\n")};
+  String key1[] = { //This is the first key, top left.
+                    osCondition("[#]r", "[!] ", F("[!]\xC3"), ""),  //send a keystroke to open a run dialog (varies per OS, Win+r, Command+Space, Alt+F2)
+                    osCondition("", "", F("[100]xdg-open "), ""),   //if it's Linux, delays 100ms and types xdg-open
+                    F("https://kernelcon.org"),                     //Types this URL
+                    F("[250]\n")                                    //Delays 250ms and hits return
+                  };                                                //Note: The F() macro around strings saves ram, see Memory Considerations section.
+
+  String key2[] = {   
+                    osCondition("[#]r", "[!] ", F("[!]\xC3"), ""), 
+                    osCondition("", "", F("[100]xdg-open "), ""), 
+                    F("https://twitch.kernelcon.org"), 
+                    F("[250]\n")
+                  };
+                  
+  String key3[] = { 
+                    osCondition("[#]r", "[!] ", F("[!]\xC3"), ""), 
+                    osCondition("", "", F("[100]xdg-open "), ""), 
+                    F("https://discord.kernelcon.org"), 
+                    F("[250]\n")
+                  };
+  String key4[] = {
+                    osCondition("[#]r", "[!] ", F("[!]\xC3"), ""), 
+                    osCondition("", "", F("[100]xdg-open "), ""), 
+                    F("http://github.com/kernelcon/hacker-hotkey"), 
+                    F("[250]\n")
+                  };
+                    
   String key5[] = {F("!vote 4\n")}; //sends the text !vote 4 and then hits return
   String key6[] = {F("!vote 3\n")};
   String key7[] = {F("!vote 2\n")};
@@ -118,7 +141,21 @@ void defineHotkeys() {
      Example: "[300]THE PLANET" would delay for 300ms and then type "THE PLANET".
      
   */
-  
+
+  //** Payload **//
+  /*
+     Sometimes you need to execute custom code, or have a large payload that you need to dump for... reasons.
+     As outlined in the Memory Management section below this is difficult to include in a hotkey, so there
+     is a special modifier that will trigger a payload.
+
+     The formatting of this is "[payload]#" where # is the number of the payload you would like to trigger.
+     
+     ** Payloads cannot be combined with any other modifier keys **
+
+     Define payloads in the definePayload function at the end of this guide.   
+
+    
+   */
   //** Hotkey Text **//
   /*
      Hotkey Text is any text added after the Modifier Keys brackets.  This text is typed as written, with the
@@ -217,10 +254,34 @@ void defineHotkeys() {
   hkey(7, key8, sizeof(key8) / sizeof(key8[0]));
 } //end of defineHotkeys function
 
-//** Serial Monitoring **//
-/* Uncomment this line if you want to print debug text over the serial monitor */
+  //** Define Payloads here **//
+  /* Remember to wrap large strings in the F() macro so you have enough RAM.
+     Keep a delay(200); at the end or your button press will trigger multiple times
+     Feel free to do whatever you want here, this is where you can trigger custom code */
 
-//#define DEBUG
+void definePayload(int num) {
+    switch (num) {
+/*      case 1: // Trigger #
+        //This trigger types the first page of the DMCA (because that is a useful feature) and then delays for 200 seconds.
+        Keyboard.print(F("INTRODUCTION\n"
+        "The Digital Millennium Copyright Act (DMCA)1 was signed into law by President Clinton on October 28, 1998. The legislation implements two 1996 World Intellectual Property Organization (WIPO) treaties: the WIPO Copyright Treaty and the WIPO Performances and Phonograms Treaty. The DMCA also addresses a number of other significant copyright-related issues.\n"
+        "The DMCA is divided into five titles:\n"
+        " - Title I, the \"WIPO Copyright and Performances and Phonograms Treaties Implementation Act of 1998,\" implements the WIPO treaties.\n"
+        " - Title II, the \"Online Copyright Infringement Liability Limitation Act,\" creates limitations on the liability of online service providers for copyright infringement when engaging in certain types of activities.\n"
+        " - Title III, the \"Computer Maintenance Competition Assurance Act,\" creates an exemption for making a copy of a computer program by activating a computer for purposes of maintenance or repair.\n"
+        " - Title IV contains six miscellaneous provisions, relating to the functions of the Copyright Office, distance education, the exceptions in the Copyright Act for libraries and for making ephemeral recordings, \"webcasting\" of sound recordings on the Internet, and the applicability of collective bargaining agreement obligations in the case of transfers of rights in motion pictures.\n"
+        " - Title V, the \"Vessel Hull Design Protection Act,\" creates a new form of protection for the design of vessel hulls.\n"
+        "This memorandum summarizes briefly each title of the DMCA. It provides merely an overview of the law's provisions; for purposes of length and readability a significant amount of detail has been omitted. A complete understanding of any provision of the DMCA requires reference to the text of the legislation itself."));
+        delay(200); //delay to avoid bounces
+      break; // break at the end
+*/
+    }
+}
+
+  //** Serial Monitoring **//
+  /* Uncomment this line if you want to print debug text over the serial monitor */
+
+ //#define DEBUG
 
 //************ THE END, or the beginning if you're a hacker ************************//
 /* you do not need to modify anything below here */
@@ -345,6 +406,11 @@ bool processBtn(int keynum) {
   //iterates through the array of strings for this key
   for (int action = 1; action <= hotkeys[keynum][0].toInt(); action++) {
     if ((hotkeys[keynum])[action].length() > 0) { //check to make sure there actually is text & starts parsing
+
+    if((hotkeys[keynum])[action].substring(0,9) == "[payload]") {
+      definePayload((hotkeys[keynum])[action].substring(9).toInt());      
+      break;
+    } else {
 
       //check for modifiers.
       if (((hotkeys[keynum])[action].indexOf('[') == 0) && ((hotkeys[keynum])[action].indexOf(']') > 0)) {
@@ -481,6 +547,7 @@ bool processBtn(int keynum) {
       
       Keyboard.releaseAll(); //release any mod keys
       delay(200); //delay to avoid bounces
+      }
     }
   }
 

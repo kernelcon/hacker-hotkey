@@ -73,7 +73,7 @@ Shortcuts have been made for these Modifier Keys to make writing hotkeys simpler
    ```
 
 Please note:  If you use uppercase letters/symbols the hotkey will push shift also, so
-[^]c and [^]C act differently.  The first acts as Control+c and the second acts as Control+Shift+c
+```[^]c``` and ```[^]C``` act differently.  The first acts as Control+c and the second acts as Control+Shift+c
 
 Additionally, all modifier keys supported by Arduino can be used when added as such:
 
@@ -101,6 +101,24 @@ The delay may be combined with Modifier Keys, but will be executed after any mod
 ```c
 Example: "[300]THE PLANET" would delay for 300ms and then type "THE PLANET".
 ```
+
+## Payload
+
+Sometimes you need to execute custom code, or have a large payload that you need to dump for... reasons.
+As outlined in the Memory Management section below this is difficult to include in a hotkey, so there
+is a special modifier that will trigger a payload.
+
+The formatting of this is ```"[payload]#"``` where # is the number of the payload you would like to trigger.
+```c
+Example  String key8[] = {"[payload]0"};
+```
+**Payloads cannot be combined with any other modifier keys**
+
+Define payloads in the definePayload function.  See the code for an example.
+
+Wrap large strings in the ```F()``` macro so you have enough RAM. (See Memory Considerations below)
+Keep a ```delay(200);``` at the end or your button press will trigger multiple times.
+Feel free to do whatever you want here, this is where you can trigger custom code
 
 
 ## Hotkey Text
@@ -182,3 +200,6 @@ Digital Millenium Copyright Act in a macro.  It will still overwhelm the SRAM wh
 your hotkey will fail quietly, or do weird and funky stuff.
 
 If you can rewrite this mess to be more efficient, please submit a pull request.   
+
+## Debug Serial Monitoring
+Uncomment the ```#define DEBUG``` line to enable debug printouts via the serial monitor
