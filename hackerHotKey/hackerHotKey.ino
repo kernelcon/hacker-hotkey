@@ -38,31 +38,31 @@ void loop() {
     delay(200);
   }
   else if (digitalRead(BTN2) == LOW) {
-    Keyboard.println("https://discord.kernelcon.org");
-    delay(200);
-  }
-  else if (digitalRead(BTN3) == LOW) {
     Keyboard.println("https://twitch.kernelcon.org");
     delay(200);
   }
+  else if (digitalRead(BTN3) == LOW) {
+    Keyboard.println("https://discord.kernelcon.org");
+    delay(200);
+  }
   else if (digitalRead(BTN4) == LOW) {
-    Keyboard.println("https://github.com/kernelcon");
+    Keyboard.println("https://github.com/kernelcon/hacker-hotkey");
     delay(200);
   }
   else if (digitalRead(BTN5) == LOW) {
-    Keyboard.println("!vote 4");
+    Keyboard.println("!vote 4\n");
     delay(200);
   }
   else if (digitalRead(BTN6) == LOW) {
-    Keyboard.println("!vote 3");
+    Keyboard.println("!vote 3\n");
     delay(200);
   }
   else if (digitalRead(BTN7) == LOW) {
-    Keyboard.println("!vote 2");
+    Keyboard.println("!vote 2\n");
     delay(200);
   }
   else if (digitalRead(BTN8) == LOW) {
-    Keyboard.println("!vote 1");
+    Keyboard.println("!vote 1\n");
     delay(200);
   }
 }

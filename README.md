@@ -29,8 +29,16 @@ This repos contains example software for the [Kernelcon](https://kernelcon.org/)
       PID: 0x8036
       SN: Upload any sketch to obtain it
       ```
-5. upload code
+6. choose your code
+   * [hacker hotkey sample](hackerHotKey/hackerHotKey.ino) 
+      * A simple firmware example that is a good starting point for developing your own code
+   * [hacker hotkey advanced](hackerhotkey-adv/hackerhotkey-adv.ino)
+      * More advanced firmware if you just want to create powerful hotkeys without coding
+      * Refer to the [Hacker Hotkey Advanced guide](README-adv.md) for configuring hotkeys
+7. upload code
    * sketch -> upload
    * Arduino IDE will compile and upload firmware to the Hacker Hotkey, which you can use immediately after upload (no unplugging, reseting, etc required)
+
+
 
 
