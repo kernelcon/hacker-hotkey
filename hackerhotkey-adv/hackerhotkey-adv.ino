@@ -26,6 +26,8 @@
      If you want to force Hacker Hotkey to act as if it's connected to a specific OS, set it here.  
      Valid options are "Windows", "MacOS", "Linux", "Other". Example:  String OS = "Linux";
      Otherwise, for auto-detection leave it blank.
+
+     You may also use the global varialbe "OS" within your hotkey definitions.
   */
 
 String OS = ""; 
@@ -204,7 +206,13 @@ void defineHotkeys() {
      your OS, so use with caution.  The Hack Hotkey also will most likely not be able to identify a host within a VM.
      The code also does not properly identify mobile OS', and may identify them as Mac, Linux or unsure.
 
-     Usage: osCondition("Windows Value","MacOS Value","Linux Value","Unsure");
+     Usage: osCondition("Windows Value","MacOS Value","Linux Value","Unsure")
+
+     Example: 
+       String key5[] = {
+                  "I love using my hacker hotkey on "+OS+"\n",
+                  osCondition("yay bill gates!\n","yay Steve Jobs!\n","yay Linus Torvalds!\n","yay!\n")
+       };
 
      Always include each argument even if it is a blank string ("");
    

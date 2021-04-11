@@ -28,6 +28,8 @@ Example: String OS = "Linux";
 ```
 Otherwise, for auto-detection leave it blank.
 
+You may also use the global variable ```OS``` within your hotkey definitions.
+
 You can also dynamically set the HostOS at boot time by holding down one of the top 4 keys when the device powers on.
 [1] = Windows, [2] = MacOS, [3] = Linux, [4] = Other
 
@@ -171,6 +173,14 @@ your OS, so use with caution.  The Hack Hotkey also will most likely not be able
 The code also does not properly identify mobile OS', and may identify them as Mac, Linux or unsure.
 ```c
 Usage: osCondition("Windows Value","MacOS Value","Linux Value","Unsure");
+
+Example: 
+
+String key5[] = {
+         "I love using my hacker hotkey on "+OS+"\n",
+         osCondition("yay Bill Gates!\n","yay Steve Jobs!\n","yay Linus Torvalds!\n","yay!\n")
+};
+
 ```
 Always include each argument even if it is a blank string ("");
 

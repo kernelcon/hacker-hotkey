@@ -50,19 +50,19 @@ void loop() {
     delay(200);
   }
   else if (digitalRead(BTN5) == LOW) {
-    Keyboard.println("!vote 4\n");
+    Keyboard.println("!vote 4");
     delay(200);
   }
   else if (digitalRead(BTN6) == LOW) {
-    Keyboard.println("!vote 3\n");
+    Keyboard.println("!vote 3");
     delay(200);
   }
   else if (digitalRead(BTN7) == LOW) {
-    Keyboard.println("!vote 2\n");
+    Keyboard.println("!vote 2");
     delay(200);
   }
   else if (digitalRead(BTN8) == LOW) {
-    Keyboard.println("!vote 1\n");
+    Keyboard.println("!vote 1");
     delay(200);
   }
 }
