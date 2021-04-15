@@ -30,7 +30,7 @@
      You may also use the global varialbe "OS" within your hotkey definitions.
   */
 
-String OS = "MacOS"; 
+String OS = ""; 
      
    /*
      You can also dynamically set the HostOS at boot time by holding down one of the top 4 keys when the device powers on.
