@@ -68,9 +68,9 @@ Example: "[^!]HACK" would type [Control Key]+[Alt Key]+HACK - release
 Shortcuts have been made for these Modifier Keys to make writing hotkeys simpler:
 
 ```
-   # = LEFT_GUI = Left Windows Key / GUI Key (Linux) / Option Key (Mac)
+   # = LEFT_GUI = Left Windows Key / GUI Key (Linux) / Command Key (Mac)
    ^ = LEFT_CTRL = Left Control Key
-   ! = LEFT_ALT = Left Alt Key / Command Key (Mac)
+   ! = LEFT_ALT = Left Alt Key / Option Key (Mac)
    + = LEFT_SHIFT = Left Shift Key
    ```
 

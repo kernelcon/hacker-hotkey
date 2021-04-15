@@ -109,9 +109,9 @@ void defineHotkeys() {
 
      Shortcuts have been made for these Modifier Keys to make writing hotkeys simpler:
 
-        # = LEFT_GUI = Left Windows Key / GUI Key (Linux) / Option Key (Mac)
+        # = LEFT_GUI = Left Windows Key / GUI Key (Linux) / Command Key (Mac)
         ^ = LEFT_CTRL = Left Control Key
-        ! = LEFT_ALT = Left Alt Key / Command Key (Mac)
+        ! = LEFT_ALT = Left Alt Key / Option Key (Mac)
         + = LEFT_SHIFT = Left Shift Key
 
      Please note:  If you use uppercase letters/symbols the hotkey will push shift also, so
