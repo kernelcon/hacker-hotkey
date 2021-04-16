@@ -39,6 +39,9 @@ This repos contains example software for the [Kernelcon](https://kernelcon.org/)
    * sketch -> upload
    * Arduino IDE will compile and upload firmware to the Hacker Hotkey, which you can use immediately after upload (no unplugging, reseting, etc required)
 
+## 3D Printing a case
+
+We've designed a case for Hacker Hotkey, and while not necessary to function it does complete the look.  [Download the STL at Thingiverse](https://www.thingiverse.com/thing:4828073/apps)
 
 
 
