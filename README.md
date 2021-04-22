@@ -21,9 +21,6 @@ Of course Hacker Hotkey can be configured however you like after Hack Live...
        * https://www.arduino.cc/en/Guide
    * install keyboard library if necessary:
        * tools -> Manage Libraries -> search "keyboard" -> install
-   ```sh
-    arduino hackerHotKey.ino
-   ```
 3. select "Arduino Leonardo" board type
    * install Arduino boards if necessary:
       * tools -> Boards Manager -> search "Arduino AVR Boards" -> install 
@@ -39,11 +36,11 @@ Of course Hacker Hotkey can be configured however you like after Hack Live...
       SN: Upload any sketch to obtain it
       ```
 6. choose your code
-   * [hacker hotkey sample](hackerHotKey/hackerHotKey.ino) 
-      * A simple firmware example that is a good starting point for developing your own code
    * [hacker hotkey advanced](hackerhotkey-adv/hackerhotkey-adv.ino)
       * More advanced firmware if you just want to create powerful hotkeys without coding
       * Refer to the [Hacker Hotkey Advanced guide](README-adv.md) for configuring hotkeys
+   * [hacker hotkey sample](hackerHotKey/hackerHotKey.ino) 
+      * A simple firmware example that is a good starting point for developing your own code
 7. upload code
    * sketch -> upload
    * Arduino IDE will compile and upload firmware to the Hacker Hotkey, which you can use immediately after upload (no unplugging, reseting, etc required)
