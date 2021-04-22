@@ -2,6 +2,9 @@
 This repos contains example software for the [Kernelcon](https://kernelcon.org/) 2021 Hack Live! badge - the Hacker HotKey.
 
 [![hacker hotkey hotkey image](./hackerhotkey-sm-white.png)](https://kernelcon.square.site/)
+
+Default Keys:
+
 [![hacker hotkey default buttons](./defaultkeys.png)](https://kernelcon.square.site/)
 
 ## Compiling and uploading firmware
