@@ -3,9 +3,14 @@ This repos contains example software for the [Kernelcon](https://kernelcon.org/)
 
 [![hacker hotkey hotkey image](./hackerhotkey-sm-white.png)](https://kernelcon.square.site/)
 
-Default Keys:
+## Default Hotkey Mapping
 
 [![hacker hotkey default buttons](./defaultkeys.png)](https://kernelcon.square.site/)
+
+Hacker Hotkey is configured by default to function with Kernelcon Hack Live!
+The four Launch buttons on the top row attempt to identify your host operating system and use run commands to launch the web sites displayed.
+The second row if voting buttons type the vote commands to participate in polls.
+Of course Hacker Hotkey can be configured however you like after Hack Live...
 
 ## Compiling and uploading firmware
 
