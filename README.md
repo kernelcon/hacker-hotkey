@@ -3,14 +3,9 @@ This repos contains example software for the [Kernelcon](https://kernelcon.org/)
 
 [![hacker hotkey hotkey image](./hackerhotkey-sm-white.png)](https://kernelcon.square.site/)
 
-## Default Hotkey Mapping
+Default Keys:
 
-[![default key functions](./defaultkeys.png)]
-
-Hacker Hotkey is configured by default to function with Kernelcon Hack Live!
-The four Launch buttons on the top row attempt to identify your host operating system and use run commands to launch the web sites displayed.
-The second row if voting buttons type the vote commands to participate in polls.
-Of course Hacker Hotkey can be configured however you like after Hack Live...
+[![hacker hotkey default buttons](./defaultkeys.png)](https://kernelcon.square.site/)
 
 ## Compiling and uploading firmware
 
@@ -21,6 +16,9 @@ Of course Hacker Hotkey can be configured however you like after Hack Live...
        * https://www.arduino.cc/en/Guide
    * install keyboard library if necessary:
        * tools -> Manage Libraries -> search "keyboard" -> install
+   ```sh
+    arduino hackerHotKey.ino
+   ```
 3. select "Arduino Leonardo" board type
    * install Arduino boards if necessary:
       * tools -> Boards Manager -> search "Arduino AVR Boards" -> install 
@@ -36,11 +34,11 @@ Of course Hacker Hotkey can be configured however you like after Hack Live...
       SN: Upload any sketch to obtain it
       ```
 6. choose your code
+   * [hacker hotkey sample](hackerHotKey/hackerHotKey.ino) 
+      * A simple firmware example that is a good starting point for developing your own code
    * [hacker hotkey advanced](hackerhotkey-adv/hackerhotkey-adv.ino)
       * More advanced firmware if you just want to create powerful hotkeys without coding
       * Refer to the [Hacker Hotkey Advanced guide](README-adv.md) for configuring hotkeys
-   * [hacker hotkey sample](hackerHotKey/hackerHotKey.ino) 
-      * A simple firmware example that is a good starting point for developing your own code
 7. upload code
    * sketch -> upload
    * Arduino IDE will compile and upload firmware to the Hacker Hotkey, which you can use immediately after upload (no unplugging, reseting, etc required)
