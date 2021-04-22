@@ -1,5 +1,5 @@
 # Hacker HotKey
-This repos contains example software for the [Kernelcon](https://kernelcon.org/) 2021 Hack Live! badge - the Hacker HotKey.
+This repo contains example software for the [Kernelcon](https://kernelcon.org/) 2021 Hack Live! badge - the Hacker HotKey.
 
 [![hacker hotkey hotkey image](./hackerhotkey-sm-white.png)](https://kernelcon.square.site/)
 
