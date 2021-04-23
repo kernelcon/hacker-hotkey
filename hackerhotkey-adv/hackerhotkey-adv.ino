@@ -238,7 +238,7 @@ void defineHotkeys() {
      defining your hotkeys, you can wrap the string in the F() macro.  This stores your string in
      program memory until needed.
 
-       Example: String key1[] = {F("This string is stored in the 2560B of SRAM")}; //not wrapped with F()
+       Example: String key1[] = {"This string is stored in the 2560B of SRAM"}; //not wrapped with F()
         vs.     String key1[] = {F("This saves some SRAM in favor of Program Memory")}; //wrapped with F()
 
     What this will not allow is using extremely large strings of text, such as the first page of the
