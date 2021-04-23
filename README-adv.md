@@ -21,7 +21,7 @@ You will need to download all three files (hackerhotkey-adv.ino, FingerprintUSBH
 ## Host OS Detection
 
 Hacker Hotkey attempts to determine the Host OS by using the FingerPrintUSBHost Library.
-If you want to force Hacker Hotkey to act as if it's connected to a specific OS, set it in this ection
+If you want to force Hacker Hotkey to act as if it's connected to a specific OS, set it in this section. 
 Valid options are "Windows", "MacOS", "Linux", "Other". 
 ```c 
 Example: String OS = "Linux"; 
@@ -202,7 +202,7 @@ One way to combat this is to keep long strings of text out of SRAM until absolut
 defining your hotkeys, you can wrap the string in the F() macro.  This stores your string in
 program memory until needed.
 ```c
-   Example: String key1[] = {F("This string is stored in the 2560B of SRAM")}; //not wrapped with F()
+   Example: String key1[] = {"This string is stored in the 2560B of SRAM"}; //not wrapped with F()
    vs.     String key1[] = {F("This saves some SRAM in favor of Program Memory")}; //wrapped with F()
 ```
 What this will not allow is using extremely large strings of text, such as the first page of the
