@@ -44,28 +44,28 @@ void defineHotkeys() {
 
   //**These are the default hotkeys, and may be a bit complicated for noobs.  Read reference beow. **//
   
-  String key1[] = { //This is the first key, top left.
-                    osCondition("[#]r", "[#] ", F("[!]\xC3"), ""),  //send a keystroke to open a run dialog (varies per OS, Win+r, Command+Space, Alt+F2)
+  String key1[] = { //This is the first key, top left.              // NicoHood/HID doesn't recognize key numbers so you'll have to use the name of the key instead
+                    osCondition("[#]r", "[#] ", F("[!F2]"), ""),    //send a keystroke to open a run dialog (varies per OS, Win+r, Command+Space, Alt+F2)
                     osCondition("", "", F("[100]xdg-open "), ""),   //if it's Linux, delays 100ms and types xdg-open
                     F("https://kernelcon.org"),                     //Types this URL
                     F("[250]\n")                                    //Delays 250ms and hits return
                   };                                                //Note: The F() macro around strings saves ram, see Memory Considerations section.
 
   String key2[] = {   
-                    osCondition("[#]r", "[#] ", F("[!]\xC3"), ""),
+                    osCondition("[#]r", "[#] ", F("[!F2]"), ""),
                     osCondition("", "", F("[100]xdg-open "), ""),
                     F("https://twitch.kernelcon.org"),
                     F("[250]\n")
                   };
                   
   String key3[] = { 
-                    osCondition("[#]r", "[#] ", F("[!]\xC3"), ""),
+                    osCondition("[#]r", "[#] ", F("[!F2]"), ""),
                     osCondition("", "", F("[100]xdg-open "), ""),
                     F("https://discord.kernelcon.org"),
                     F("[250]\n")
                   };
   String key4[] = {
-                    osCondition("[#]r", "[#] ", F("[!]\xC3"), ""),
+                    osCondition("[#]r", "[#] ", F("[!F2]"), ""),
                     osCondition("", "", F("[100]xdg-open "), ""),
                     F("http://github.com/kernelcon/hacker-hotkey"),
                     F("[250]\n")
@@ -304,7 +304,7 @@ void definePayload(int num) {
 //FingerprintUSBHost library (c) Jesse Vincent sourced from https://github.com/keyboardio/FingerprintUSBHost
 
 #include "FingerprintUSBHost.h"
-#include <Keyboard.h>
+#include <HID-Project.h>
 #include <avr/pgmspace.h>
 
 //prep some globals

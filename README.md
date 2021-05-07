@@ -21,6 +21,8 @@ Of course Hacker Hotkey can be configured however you like after Hack Live...
        * https://www.arduino.cc/en/Guide
    * install keyboard library if necessary:
        * tools -> Manage Libraries -> search "keyboard" -> install
+   * if using the advanced firmware, install the [HID-Project library by NicoHood](https://github.com/NicoHood/HID/)
+       * tools -> Manage Libraries -> search "HID-Project" -> install
 3. select "Arduino Leonardo" board type
    * install Arduino boards if necessary:
       * tools -> Boards Manager -> search "Arduino AVR Boards" -> install 
