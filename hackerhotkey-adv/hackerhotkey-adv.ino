@@ -135,6 +135,26 @@ void defineHotkeys() {
      Example: "[RIGHT_SHIFT F12]" would press Shift+F12 and no additional text.
   
   */
+
+  //** Media Keys **//
+  /*
+  	 Media keys use a similar syntax to modifier keys. Set your key to [MEDIA_KEY_DEFINITION]. For instance,
+	 the following snippet will set key1 to toggle the play/pause functionality of your system.
+	 	```
+	 	String key1[] = {F("[MEDIA_PLAY_PAUSE]")};
+		```
+	Definitions:
+        MEDIA_PLAY_PAUSE 			BROWSER_HOME 
+        MEDIA_FAST_FORWARD			BROWSER_FORWARD
+        MEDIA_REWIND				BROWSER_BACK
+		MEDIA_NEXT					BROWSER_REFRESH
+        MEDIA_PREVIOUS				BROWSER_BOOKMARKS
+		MEDIA_STOP
+		MEDIA_VOLUME_MUTE			EMAIL_READER
+		MEDIA_VOLUME_UP				CALCULATOR
+		MEDIA_VOLUME_DOWN			EXPLORER
+
+  */
   
   //** Delay **//
   /*
@@ -534,7 +554,57 @@ bool processBtn(int keynum) {
           if (mods.indexOf(F("F12")) > -1) { 
             Keyboard.press(KEY_F12); 
           }
-
+          if (mods.indexOf(F("MEDIA_PLAY_PAUSE")) > -1) { 
+            Consumer.write(MEDIA_PLAY_PAUSE); 
+          }
+          if (mods.indexOf(F("MEDIA_FAST_FORWARD")) > -1) { 
+            Consumer.write(MEDIA_FAST_FORWARD); 
+          }
+          if (mods.indexOf(F("MEDIA_REWIND")) > -1) { 
+            Consumer.write(MEDIA_REWIND); 
+          }
+          if (mods.indexOf(F("MEDIA_NEXT")) > -1) { 
+            Consumer.write(MEDIA_NEXT); 
+          }
+          if (mods.indexOf(F("MEDIA_PREVIOUS")) > -1) { 
+            Consumer.write(MEDIA_PREVIOUS); 
+          }
+          if (mods.indexOf(F("MEDIA_STOP")) > -1) { 
+            Consumer.write(MEDIA_STOP); 
+          }
+          if (mods.indexOf(F("MEDIA_VOLUME_MUTE")) > -1) { 
+            Consumer.write(MEDIA_VOLUME_MUTE); 
+          }
+          if (mods.indexOf(F("MEDIA_VOLUME_UP")) > -1) { 
+            Consumer.write(MEDIA_VOLUME_UP); 
+          }
+          if (mods.indexOf(F("MEDIA_VOLUME_DOWN")) > -1) { 
+            Consumer.write(MEDIA_VOLUME_DOWN); 
+          }
+          if (mods.indexOf(F("EMAIL_READER")) > -1) { 
+            Consumer.write(CONSUMER_EMAIL_READER); 
+          }
+          if (mods.indexOf(F("CALCULATOR")) > -1) { 
+            Consumer.write(CONSUMER_CALCULATOR); 
+          }
+          if (mods.indexOf(F("EXPLORER")) > -1) { 
+            Consumer.write(CONSUMER_EXPLORER); 
+          }
+          if (mods.indexOf(F("BROWSER_HOME")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_HOME); 
+          }
+          if (mods.indexOf(F("BROWSER_BACK")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_BACK); 
+          }
+          if (mods.indexOf(F("BROWSER_FORWARD")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_FORWARD); 
+          }
+          if (mods.indexOf(F("BROWSER_REFRESH")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_REFRESH); 
+          }
+          if (mods.indexOf(F("BROWSER_BOOKMARKS")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_BOOKMARKS); 
+          }
         //check if there is a delay & execute it
         checkDelay(mods);    
 
@@ -611,6 +681,7 @@ if (OS.length() == 0) {
   defineHotkeys(); //call that function where you defined the hotkeys
   
   Keyboard.begin(); //support keyboard presses
+  Consumer.begin(); //support media keys
 }
 
 void loop() {
