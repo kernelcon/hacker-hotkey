@@ -44,28 +44,28 @@ void defineHotkeys() {
 
   //**These are the default hotkeys, and may be a bit complicated for noobs.  Read reference beow. **//
   
-  String key1[] = { //This is the first key, top left.
-                    osCondition("[#]r", "[#] ", F("[!]\xC3"), ""),  //send a keystroke to open a run dialog (varies per OS, Win+r, Command+Space, Alt+F2)
+  String key1[] = { //This is the first key, top left.              // NicoHood/HID doesn't recognize key numbers so you'll have to use the name of the key instead
+                    osCondition("[#]r", "[#] ", F("[!F2]"), ""),    //send a keystroke to open a run dialog (varies per OS, Win+r, Command+Space, Alt+F2)
                     osCondition("", "", F("[100]xdg-open "), ""),   //if it's Linux, delays 100ms and types xdg-open
                     F("https://kernelcon.org"),                     //Types this URL
                     F("[250]\n")                                    //Delays 250ms and hits return
                   };                                                //Note: The F() macro around strings saves ram, see Memory Considerations section.
 
   String key2[] = {   
-                    osCondition("[#]r", "[#] ", F("[!]\xC3"), ""),
+                    osCondition("[#]r", "[#] ", F("[!F2]"), ""),
                     osCondition("", "", F("[100]xdg-open "), ""),
                     F("https://twitch.kernelcon.org"),
                     F("[250]\n")
                   };
                   
   String key3[] = { 
-                    osCondition("[#]r", "[#] ", F("[!]\xC3"), ""),
+                    osCondition("[#]r", "[#] ", F("[!F2]"), ""),
                     osCondition("", "", F("[100]xdg-open "), ""),
                     F("https://discord.kernelcon.org"),
                     F("[250]\n")
                   };
   String key4[] = {
-                    osCondition("[#]r", "[#] ", F("[!]\xC3"), ""),
+                    osCondition("[#]r", "[#] ", F("[!F2]"), ""),
                     osCondition("", "", F("[100]xdg-open "), ""),
                     F("http://github.com/kernelcon/hacker-hotkey"),
                     F("[250]\n")
@@ -134,6 +134,26 @@ void defineHotkeys() {
 
      Example: "[RIGHT_SHIFT F12]" would press Shift+F12 and no additional text.
   
+  */
+
+  //** Media Keys **//
+  /*
+  	 Media keys use a similar syntax to modifier keys. Set your key to [MEDIA_KEY_DEFINITION]. For instance,
+	 the following snippet will set key1 to toggle the play/pause functionality of your system.
+	 	```
+	 	String key1[] = {F("[MEDIA_PLAY_PAUSE]")};
+		```
+	Definitions:
+        MEDIA_PLAY_PAUSE 			BROWSER_HOME 
+        MEDIA_FAST_FORWARD			BROWSER_FORWARD
+        MEDIA_REWIND				BROWSER_BACK
+		MEDIA_NEXT					BROWSER_REFRESH
+        MEDIA_PREVIOUS				BROWSER_BOOKMARKS
+		MEDIA_STOP
+		MEDIA_VOLUME_MUTE			EMAIL_READER
+		MEDIA_VOLUME_UP				CALCULATOR
+		MEDIA_VOLUME_DOWN			EXPLORER
+
   */
   
   //** Delay **//
@@ -304,7 +324,7 @@ void definePayload(int num) {
 //FingerprintUSBHost library (c) Jesse Vincent sourced from https://github.com/keyboardio/FingerprintUSBHost
 
 #include "FingerprintUSBHost.h"
-#include <Keyboard.h>
+#include <HID-Project.h>
 #include <avr/pgmspace.h>
 
 //prep some globals
@@ -534,7 +554,57 @@ bool processBtn(int keynum) {
           if (mods.indexOf(F("F12")) > -1) { 
             Keyboard.press(KEY_F12); 
           }
-
+          if (mods.indexOf(F("MEDIA_PLAY_PAUSE")) > -1) { 
+            Consumer.write(MEDIA_PLAY_PAUSE); 
+          }
+          if (mods.indexOf(F("MEDIA_FAST_FORWARD")) > -1) { 
+            Consumer.write(MEDIA_FAST_FORWARD); 
+          }
+          if (mods.indexOf(F("MEDIA_REWIND")) > -1) { 
+            Consumer.write(MEDIA_REWIND); 
+          }
+          if (mods.indexOf(F("MEDIA_NEXT")) > -1) { 
+            Consumer.write(MEDIA_NEXT); 
+          }
+          if (mods.indexOf(F("MEDIA_PREVIOUS")) > -1) { 
+            Consumer.write(MEDIA_PREVIOUS); 
+          }
+          if (mods.indexOf(F("MEDIA_STOP")) > -1) { 
+            Consumer.write(MEDIA_STOP); 
+          }
+          if (mods.indexOf(F("MEDIA_VOLUME_MUTE")) > -1) { 
+            Consumer.write(MEDIA_VOLUME_MUTE); 
+          }
+          if (mods.indexOf(F("MEDIA_VOLUME_UP")) > -1) { 
+            Consumer.write(MEDIA_VOLUME_UP); 
+          }
+          if (mods.indexOf(F("MEDIA_VOLUME_DOWN")) > -1) { 
+            Consumer.write(MEDIA_VOLUME_DOWN); 
+          }
+          if (mods.indexOf(F("EMAIL_READER")) > -1) { 
+            Consumer.write(CONSUMER_EMAIL_READER); 
+          }
+          if (mods.indexOf(F("CALCULATOR")) > -1) { 
+            Consumer.write(CONSUMER_CALCULATOR); 
+          }
+          if (mods.indexOf(F("EXPLORER")) > -1) { 
+            Consumer.write(CONSUMER_EXPLORER); 
+          }
+          if (mods.indexOf(F("BROWSER_HOME")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_HOME); 
+          }
+          if (mods.indexOf(F("BROWSER_BACK")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_BACK); 
+          }
+          if (mods.indexOf(F("BROWSER_FORWARD")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_FORWARD); 
+          }
+          if (mods.indexOf(F("BROWSER_REFRESH")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_REFRESH); 
+          }
+          if (mods.indexOf(F("BROWSER_BOOKMARKS")) > -1) { 
+            Consumer.write(CONSUMER_BROWSER_BOOKMARKS); 
+          }
         //check if there is a delay & execute it
         checkDelay(mods);    
 
@@ -611,6 +681,7 @@ if (OS.length() == 0) {
   defineHotkeys(); //call that function where you defined the hotkeys
   
   Keyboard.begin(); //support keyboard presses
+  Consumer.begin(); //support media keys
 }
 
 void loop() {
